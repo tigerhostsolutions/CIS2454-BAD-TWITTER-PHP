@@ -1,5 +1,12 @@
 <?php
     // User.php
+    namespace App\Models;
+
+    use PDO;
+    
+    require_once __DIR__ . '/../config.php';
+    require_once BASE_DIR . '/models/Database.php';
+    
     class  User
     {
         public static function getAllExcept($userId)
@@ -7,7 +14,7 @@
             $pdo = Database::getConnection();
             $stmt = $pdo->prepare("SELECT users.*,
                                  (SELECT COUNT(*) FROM follows WHERE follows.following_id = users.id AND follows.follower_id = :user_id) AS user_followed
-                                 FROM users
+                                 FROM `users`
                                  WHERE users.id != :user_id");
             $stmt->execute(['user_id' => $userId]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +49,8 @@
             $stmt->execute(['username' => $username, 'email' => $email, 'id' => $userId]);
         }
         
-        public static function getFollowing($userId) {
+        public static function getFollowing($userId)
+        {
             $db = Database::getConnection();
             $query = "SELECT u.id, u.username, u.email, u.bio, u.profile_pic
               FROM users u
