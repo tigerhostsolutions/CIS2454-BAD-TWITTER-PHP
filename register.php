@@ -1,25 +1,33 @@
 <?php
     // register.php
-    global $pdo;
+    use App\Models\Database;
+    
     session_start();
     
-    $baseDir = __DIR__ . '/';
-    include $baseDir . 'models/Database.php';
+    require_once __DIR__ . '/config.php';
+    require_once BASE_DIR . '/models/Database.php';
+    require_once BASE_DIR . '/views/header.php';
     
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Fetch PDO instance from Database class
+        $pdo = Database::getConnection();
+        
+        // Filter incoming data (optional - sanitize if needed)
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         
-   
+        // Prepare and execute the query
         $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
         $stmt->execute(['username' => $username, 'email' => $email, 'password' => $password]);
         
+        // Store user ID in session and redirect to index
         $_SESSION['user_id'] = $pdo->lastInsertId();
         header("Location: index.php");
+        exit();
     }
     
-    include $baseDir . '/views/header.php';
+
 ?>
 
 <main>
@@ -39,6 +47,5 @@
 </main>
 
 <?php
-    $baseDir = __DIR__ . '/';
-    include $baseDir . '/views/footer.php';
+    require_once BASE_DIR . '/views/footer.php';
     ?>

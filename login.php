@@ -1,8 +1,12 @@
 <?php
 // login.php
+    use App\Models\Database;
+    
     session_start();
-    $baseDir = __DIR__ . '/';
-    include $baseDir . 'models/Database.php';
+    
+    require_once __DIR__ . '/config.php';
+    require_once BASE_DIR . '/models/Database.php';
+    require_once BASE_DIR . '/views/header.php';
     
     $pdo = Database::getConnection(); // Initialize the $pdo variable
     
@@ -22,8 +26,6 @@
             echo "Invalid credentials.";
         }
     }
-    
-    include $baseDir . '/views/header.php';
 ?>
 
     <main >
@@ -40,6 +42,5 @@
     </main >
 
 <?php
-    $baseDir = __DIR__ . '/';
-    include $baseDir . '/views/footer.php';
+    require_once BASE_DIR . '/views/footer.php';
 ?>
