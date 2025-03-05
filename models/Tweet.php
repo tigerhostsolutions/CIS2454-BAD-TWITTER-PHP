@@ -1,8 +1,12 @@
 <?php
     // Tweet.php
-    $baseDir = __DIR__ . '/';
-    include_once $baseDir . '/Database.php';
-    include_once $baseDir . '/Like.php';
+    namespace App\Models;
+    
+    use PDO;
+    
+    require_once __DIR__ . '/../config.php';
+    require_once BASE_DIR . '/models/Database.php';
+    require_once BASE_DIR . '/models/Like.php';
     
     class Tweet
     {
@@ -12,7 +16,7 @@
             $stmt = $pdo->prepare("INSERT INTO tweets (user_id, content, image_path) VALUES (:user_id, :content, :image_path)");
             $stmt->execute(['user_id' => $userId, 'content' => $content, 'image_path' => $imagePath]);
         }
-        
+    
         public static function getAll($userId)
         {
             $pdo = Database::getConnection();
