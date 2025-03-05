@@ -1,10 +1,16 @@
 <?php
     // TweetController.php
-    use models\Database;
+    namespace App\Controllers;
     
-    include_once 'models/Tweet.php';
-    include_once 'models/Like.php';
-    include_once 'models/User.php';
+    use App\Models\Database;
+    use App\Models\Tweet;
+    use App\Models\User;
+    use PDO;
+    
+    require_once __DIR__ . '/../config.php';
+    require_once BASE_DIR . '/models/Tweet.php';
+    require_once BASE_DIR . '/models/Like.php';
+    require_once BASE_DIR . '/models/User.php';
     
     class TweetController {
         public static function handleRequest() {
