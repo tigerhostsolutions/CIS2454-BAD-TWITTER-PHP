@@ -3,11 +3,6 @@
     use App\Models\Tweet;
     use App\Models\User;
     
-    require_once __DIR__ . '/../config.php';
-    require_once BASE_DIR . '/views/header.php';
-    require_once BASE_DIR . '/models/Tweet.php';
-    require_once BASE_DIR . '/models/Database.php';
-    
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
@@ -15,6 +10,11 @@
         header("Location: login.php");
         exit;
     }
+    
+    require_once __DIR__ . '/../config.php';
+    require_once BASE_DIR . '/views/header.php';
+    require_once BASE_DIR . '/models/Tweet.php';
+    require_once BASE_DIR . '/models/Database.php';
 ?>
 
     <main >
