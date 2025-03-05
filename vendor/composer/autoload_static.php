@@ -33,7 +33,8 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         ),
         'A' => 
         array (
-            'App\\' => 4,
+            'App\\Models\\' => 11,
+            'App\\Controllers\\' => 16,
         ),
     );
 
@@ -62,14 +63,14 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
-        'App\\' => 
+        'App\\Models\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/models',
         ),
-    );
-
-    public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/../..' . '/models',
+        'App\\Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers',
+        ),
     );
 
     public static $classMap = array (
@@ -86,7 +87,6 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitd751713988987e9331980363e24189ce::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitd751713988987e9331980363e24189ce::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInitd751713988987e9331980363e24189ce::$fallbackDirsPsr4;
             $loader->classMap = ComposerStaticInitd751713988987e9331980363e24189ce::$classMap;
 
         }, null, ClassLoader::class);
