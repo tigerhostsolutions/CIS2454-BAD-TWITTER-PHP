@@ -1,7 +1,13 @@
 <?php
     // UserController.php
-    include_once 'models/User.php';
-    include_once 'models/Tweet.php';
+    namespace App\Controllers;
+    
+    use App\Models\Tweet;
+    use App\Models\User;
+    
+    require_once __DIR__ . '/../config.php';
+    require_once BASE_DIR . '/models/Tweet.php';
+    require_once BASE_DIR . '/models/User.php';
     
     class UserController
     {
