@@ -43,8 +43,7 @@
                     self::showTweets();
                 }
             }
-            
-            include 'views/tweets.php';
+            require_once BASE_DIR . '/views/tweets.php';
         }
         
         private static function createTweet() {

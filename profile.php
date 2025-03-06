@@ -1,6 +1,8 @@
 <?php
     // profile.php
-    include 'models/Database.php';
-    include 'controllers/UserController.php';
+    use App\Controllers\UserController;
+    
+    require_once 'models/Database.php';
+    require_once 'controllers/UserController.php';
     
     UserController::handleRequest();
