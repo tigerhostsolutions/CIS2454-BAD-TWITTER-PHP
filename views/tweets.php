@@ -12,9 +12,9 @@
     }
     
     require_once __DIR__ . '/../config.php';
-    require_once BASE_DIR . '/views/header.php';
-    require_once BASE_DIR . '/models/Tweet.php';
-    require_once BASE_DIR . '/models/Database.php';
+    require_once VIEW_PATH . 'header.php';
+    require_once MODEL_PATH . 'Tweet.php';
+    require_once MODEL_PATH . 'Database.php';
 ?>
 
     <main >
@@ -93,5 +93,5 @@
     </main >
 
 <?php
-    require_once BASE_DIR . '/views/footer.php';
+    require_once VIEW_PATH . 'footer.php';
 ?>

@@ -5,9 +5,9 @@
     session_start();
     
     require_once __DIR__ . '/config.php';
-    require_once BASE_DIR . '/models/Database.php';
-    require_once BASE_DIR . '/views/header.php';
-    
+    require_once MODEL_PATH . 'Database.php';
+    require_once VIEW_PATH . 'header.php';
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Fetch PDO instance from Database class
         $pdo = Database::getConnection();
@@ -26,8 +26,6 @@
         header("Location: index.php");
         exit();
     }
-    
-
 ?>
 
 <main>
@@ -47,5 +45,5 @@
 </main>
 
 <?php
-    require_once BASE_DIR . '/views/footer.php';
+    require_once VIEW_PATH . 'footer.php';
     ?>

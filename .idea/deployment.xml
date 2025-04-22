@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" promptOnRemoteOverwrite="CHECK_TIMESTAMP" serverName="localhost:8888" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false" autoUploadExternalChanges="true" notifyRemoteChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" promptOnRemoteOverwrite="CHECK_TIMESTAMP" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false" autoUploadExternalChanges="true" notifyRemoteChanges="true">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
-      <paths name="localhost:8888">
+      <paths name="localhost:80">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/PHPBadTwitter" />
+            <mapping deploy="\sites\badtwitter-rds" local="$PROJECT_DIR$" web="/sites/badtwitter-rds" />
           </mappings>
         </serverdata>
       </paths>

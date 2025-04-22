@@ -3,8 +3,9 @@
     if (php_sapi_name() === 'cli') {
         // CLI Mode: Dynamically calculate
         $protocol = 'http://';
-        $host = 'localhost';                                                                    // Default fallback
-        $projectRoot = str_replace('\\', '/', realpath(dirname(__FILE__) . '/PHPBadTwitter/')); // Normalize directory
+        $host = 'localhost';
+        $projectRoot = str_replace('\\', '/',
+            realpath(dirname(__FILE__) . '/PHPBadTwitter/'));
         $rootPath = str_replace($_SERVER['DOCUMENT_ROOT'], '', $projectRoot);
         define('BASE_URL', $protocol . $host . $rootPath . '/');
     } else {
@@ -14,14 +15,21 @@
         
         // Use the script's directory name to avoid file-specific paths
         $scriptDir = dirname($_SERVER['SCRIPT_NAME']);
-        $projectRoot = rtrim(str_replace('/views', '', $scriptDir)) . '/'; // Adjust if needed
-        
+        $projectRoot = $scriptDir . '/';
+//        $projectRoot = rtrim(str_replace('/views', '', $scriptDir)) . '/';
         define('BASE_URL', $protocol . $host . $projectRoot);
     }
-// Directory Paths
-    define('BASE_DIR', __DIR__); // Project root directory
-    define('CSS_PATH', BASE_URL . 'css/');
-    define('UPLOAD_PATH', BASE_URL . 'uploads/');
-    define('CONTROLLER_PATH', BASE_URL . 'controllers/');
-    define('MODEL_PATH', BASE_URL . 'models/');
-    define('VIEW_PATH', BASE_URL . 'views/');
+    /*
+     * Base URL for the application
+     * This is used to generate links to assets like CSS, JS, and images.
+     */
+    const CSS_URL = BASE_URL . 'css/';
+    const UPLOAD_URL = BASE_URL . 'uploads/';
+    const VIEW_URL = BASE_URL . 'views/';
+    /*
+     * Directory paths for controllers, models, and views
+     * These are used to include the respective files in the application.
+     */
+    const CONTROLLER_PATH = __DIR__ . '/controllers/';
+    const MODEL_PATH = __DIR__ . '/models/';
+    const VIEW_PATH = __DIR__ . '/views/';

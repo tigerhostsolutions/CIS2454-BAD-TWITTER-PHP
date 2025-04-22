@@ -8,9 +8,9 @@
     use PDO;
     
     require_once __DIR__ . '/../config.php';
-    require_once BASE_DIR . '/models/Tweet.php';
-    require_once BASE_DIR . '/models/Like.php';
-    require_once BASE_DIR . '/models/User.php';
+    require_once MODEL_PATH . 'Tweet.php';
+    require_once MODEL_PATH . 'Like.php';
+    require_once MODEL_PATH . 'User.php';
     
     class TweetController {
         public static function handleRequest() {
@@ -43,7 +43,7 @@
                     self::showTweets();
                 }
             }
-            require_once BASE_DIR . '/views/tweets.php';
+            require_once VIEW_PATH . 'tweets.php';
         }
         
         private static function createTweet() {

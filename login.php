@@ -5,12 +5,12 @@
     session_start();
     
     require_once __DIR__ . '/config.php';
-    require_once BASE_DIR . '/models/Database.php';
-    require_once BASE_DIR . '/views/header.php';
-    
-    $pdo = Database::getConnection(); // Initialize the $pdo variable
+    require_once MODEL_PATH . 'Database.php';
+    require_once VIEW_PATH . 'header.php';
     
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $pdo = Database::getConnection(); // Initialize the $pdo variable
+        
         $email = $_POST['email'];
         $password = $_POST['password'];
         
@@ -42,5 +42,5 @@
     </main >
 
 <?php
-    require_once BASE_DIR . '/views/footer.php';
+    require_once VIEW_PATH . 'footer.php';
 ?>

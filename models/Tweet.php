@@ -5,8 +5,8 @@
     use PDO;
     
     require_once __DIR__ . '/../config.php';
-    require_once BASE_DIR . '/models/Database.php';
-    require_once BASE_DIR . '/models/Like.php';
+    require_once MODEL_PATH . 'Database.php';
+    require_once MODEL_PATH . 'Like.php';
     
     class Tweet
     {

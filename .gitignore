@@ -50,3 +50,7 @@
     # Specific IDE files
     .vscode/
     *.code-workspace
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
